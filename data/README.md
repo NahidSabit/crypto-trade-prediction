@@ -1,6 +1,6 @@
 # Data
 
-Raw OHLCV data is **not** committed to this repository (see `.gitignore`) because it is large and easily re-downloadable.
+Raw OHLCV data is *not* committed to this repository (see `.gitignore`) because it is large and easily re-downloadable.
 
 ## Source
 
