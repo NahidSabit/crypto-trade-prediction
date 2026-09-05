@@ -1,7 +1,7 @@
 """
 backtest.py
 
-Walk-forward (rolling-origin) validation harness.
+Walk-forward (rolling origin) validation harness.
 
 The dataset is split into sequential train/test windows that slide forward
 in time. For each fold:
