@@ -1,0 +1,36 @@
+# Configuration for the BTC/USDT trade entry prediction pipeline
+
+data:
+  symbol: "BTCUSDT"
+  interval: "1m"          # Binance kline interval
+  start_date: "2023-01-01"
+  end_date: "2025-12-01"
+  raw_data_path: "data/btcusdt_1m.csv"
+
+features:
+  momentum_windows: [5, 15, 30, 60]      # minutes
+  volatility_windows: [15, 30, 60]
+  volume_windows: [15, 30, 60]
+  target_horizon: 15                     # minutes ahead used to label an entry as "good"
+  target_return_threshold: 0.003         # +0.3% move within horizon = positive label
+
+model:
+  type: "xgboost"
+  params:
+    n_estimators: 400
+    max_depth: 5
+    learning_rate: 0.03
+    subsample: 0.8
+    colsample_bytree: 0.8
+    eval_metric: "auc"
+    random_state: 42
+
+validation:
+  method: "walk_forward"
+  train_window_days: 90
+  test_window_days: 14
+  step_days: 14
+
+output:
+  model_path: "models/xgb_entry_classifier.json"
+  results_path: "results/walk_forward_metrics.csv"

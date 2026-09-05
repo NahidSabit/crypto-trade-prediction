@@ -1,0 +1,36 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (raw market data can be large / re-downloadable — don't commit it)
+data/*.csv
+data/*.parquet
+data/*.json
+!data/README.md
+
+# Model artifacts
+*.pkl
+*.joblib
+models/
+
+# Environment / secrets
+.env
+*.env
+config.local.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
